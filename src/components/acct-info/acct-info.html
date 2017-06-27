@@ -1,0 +1,83 @@
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      {{ acctList.settings.email }}
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <change-pwd></change-pwd>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      {{ acctLabels.plan }}: <strong>{{ acctList.settings.licenseType }}</strong>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-8 offset-2>
+      <button ion-button block outline color="medium">Add Payment</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card no-margin no-padding>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-8>
+              {{ acctLabels.s_profs }}
+            </ion-col>
+            <ion-col col-4>
+              {{ acctList.settings.activeSocialAccounts }}/{{ acctList.settings.numberOfSocialsOn }}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              {{ acctLabels.ga_accts }}
+            </ion-col>
+            <ion-col col-4>
+              {{ acctList.settings.activeGAAccounts }}/{{ acctList.settings.numberOfActiveGoogleAnalyticsAccounts }}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              {{ acctLabels.posts }}
+            </ion-col>
+            <ion-col col-4>
+              {{ acctList.settings.numberOfPostsPerMonth }}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              {{ acctLabels.cst_feeds }}
+            </ion-col>
+            <ion-col col-4>
+              {{ acctList.settings.activeSearchStreams }}/{{ acctList.settings.numberOfSearchStreams }}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              {{ acctLabels.rss_feeds }}
+            </ion-col>
+            <ion-col col-4>
+              {{ acctList.settings.activeContentCurations }}/{{ acctList.settings.numberOfContentCurations }}
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-8>
+              {{ acctLabels.post_qs }}
+            </ion-col>
+            <ion-col col-4>
+              {{ acctList.settings.numberOfQueues }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      {{ acctLabels.submsg }}
+    </ion-col>
+  </ion-row>
+</ion-grid>

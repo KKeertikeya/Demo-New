@@ -1,0 +1,75 @@
+page-acct {
+    .grid {
+        padding: 0;
+     }
+    .col {
+        padding: 0;
+     }
+
+    .acct_type {
+        display: inline-block;
+        width: 18%;
+        margin: 1%;
+        padding: 0;
+
+        .button {
+            margin: 0;
+            padding: 0;
+            border-radius: 2px;
+            height: 3.5em;
+            width: 100%;
+        }
+        .button-ios-instagram,
+        .button-md-instagram,
+        .button-wp-instagram {
+            background-image: radial-gradient(
+                circle at 33% 100%, 
+                    #fed373 4%, 
+                    #f15245 30%, 
+                    #d92e7f 62%, 
+                    #9b36b7 85%, 
+                    #515ecf) !important;
+        }
+        ion-icon {
+            font-size: 2em;
+        }
+        img.icon {
+            max-height: 1.5em;
+            max-width: 1.5em;
+            margin: 0.2em 0;
+        }
+        p {
+            font-size: 0.7em;
+            margin: .25em 0 0 0;
+            padding: .25em 0 0 0;
+            border-top: 1px solid white;
+        }
+    }
+
+    ion-list.acct_list { // offsets .scroll-content { padding: 16px; }
+        margin-left: -16px;
+        margin-right: -16px;
+
+        .list-header-ios-instagram,
+        .list-header-md-instagram,
+        .list-header-wp-instagram {
+            background-image: radial-gradient(
+                circle at 33% 100%, 
+                    #eaa917 0%, 
+                    #f15245 15%, 
+                    #d92e7f 62%, 
+                    #9b36b7 85%, 
+                    #515ecf);
+        }
+        .list-header {
+            padding-left: 0.5em;
+            letter-spacing: 0;
+            min-height: 3rem;
+            font-size: 1.2em;
+
+            .label {
+                margin: 0;
+            }
+        }
+    }
+}

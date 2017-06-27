@@ -1,0 +1,29 @@
+<ion-grid *ngIf="!pwdLabels.state">
+  <ion-row>
+    <ion-col col-8 offset-2>
+      <button ion-button block outline color="medium" (click)="togglePwd()">{{ pwdLabels.change }}</button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid *ngIf="pwdLabels.state">
+  <ion-row>
+    <ion-col col-8 offset-2>
+      <button ion-button block outline color="medium" (click)="togglePwd()">{{ pwdLabels.cancel }}</button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" stacked>{{ pwdLabels.new }}</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>{{ pwdLabels.verify }}</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>

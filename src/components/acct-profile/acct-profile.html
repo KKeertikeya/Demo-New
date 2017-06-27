@@ -1,0 +1,26 @@
+<ion-list-header [color]="acct.color">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon [name]="acct.logo"></ion-icon>
+      </ion-col>
+      <ion-col col-9 text-capitalize>
+        {{ acct.nickName }}
+      </ion-col>
+      <ion-col>
+        <ion-icon name="refresh" no-padding (click)="refreshCallback(acct.accountId)" taggable></ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="trash" no-padding (click)="deleteCallback(acct.accountId)" taggable></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-list-header>
+<ion-item>
+  <ion-avatar item-start>
+    <img *ngIf="acct.config.profilePicture" [src]="acct.config.profilePicture" />
+    <img *ngIf="!acct.config.profilePicture" src="../../assets/imgs/no_user_image.jpg" />
+  </ion-avatar>
+  <ion-label>{{ acct.nickName }}</ion-label>
+  <ion-toggle [(ngModel)]="acct.enabled"></ion-toggle>
+</ion-item>

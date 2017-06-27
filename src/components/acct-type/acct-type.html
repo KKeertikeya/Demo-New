@@ -1,0 +1,16 @@
+<!-- <button ion-button [color]="type.color" (click)="addCallback(type.name)">   -->
+<button ion-button [color]="type.color" (click)="addPlatform(type.name)">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon *ngIf="type.logo" [name]="type.logo"></ion-icon>
+        <img class="icon" *ngIf="type.path" [src]="type.path" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p>{{ type.name }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</button>
