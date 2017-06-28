@@ -2,7 +2,7 @@
   "name": "ionic-hello-world",
   "version": "0.0.0",
   "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "homepage": "https://market.ionic.io/starters/free-ionic-3-firebase-auth-starter",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
