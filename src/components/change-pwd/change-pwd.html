@@ -1,4 +1,4 @@
-<ion-grid *ngIf="!pwdLabels.state">
+<ion-grid *ngIf="!pwdLabels.state; else form_pwd">
   <ion-row>
     <ion-col col-8 offset-2>
       <button ion-button block outline color="medium" (click)="togglePwd()">{{ pwdLabels.change }}</button>
@@ -6,24 +6,45 @@
   </ion-row>
 </ion-grid>
 
-<ion-grid *ngIf="pwdLabels.state">
-  <ion-row>
-    <ion-col col-8 offset-2>
-      <button ion-button block outline color="medium" (click)="togglePwd()">{{ pwdLabels.cancel }}</button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <ion-list>
-        <ion-item>
-          <ion-label color="primary" stacked>{{ pwdLabels.new }}</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label color="primary" stacked>{{ pwdLabels.verify }}</ion-label>
-          <ion-input type="password"></ion-input>
-        </ion-item>
-      </ion-list>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+<ng-template #form_pwd>
+  <form [formGroup]="pwdForm" (ngSubmit)="sendPwd(pwdForm.value)">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-8 offset-2>
+          <button ion-button block outline color="medium" (click)="togglePwd()">{{ pwdLabels.cancel }}</button>
+        </ion-col>
+      </ion-row>
+      <div class="expand">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label color="primary" floating>{{ pwdLabels.new }}</ion-label>
+            <ion-input type="password" formControlName="new_pwd"></ion-input>
+          </ion-item>
+            <p 
+            color="danger" 
+            text-center 
+            *ngIf="!pwdForm.controls['new_pwd'].valid && pwdForm.controls['new_pwd'].touched">
+            Password must be between 8 and 16 characters
+          </p> 
+          <ion-item>
+            <ion-label color="primary" floating>{{ pwdLabels.verify }}</ion-label>
+            <ion-input type="password" formControlName="verify_pwd"></ion-input>
+          </ion-item>
+            <p 
+            color="danger" 
+            text-center 
+            *ngIf="pwdForm.controls['verify_pwd'].hasError('mismatch') && pwdForm.controls['new_pwd'].touched && pwdForm.controls['verify_pwd'].touched">
+            Passwords do not match
+          </p>           
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-8 offset-2>
+          <button ion-button block color="primary" type="submit" [disabled]="!pwdForm.valid">{{ pwdLabels.submit }}</button>
+        </ion-col>
+      </ion-row>
+      </div>
+    </ion-grid>
+  </form>
+</ng-template>

@@ -73,6 +73,10 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
+// enable ios text input highlight color 
+// https://github.com/ionic-team/ionic/issues/6449
+$text-input-ios-show-focus-highlight: true !default;
+
 
 
 

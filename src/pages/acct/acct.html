@@ -6,28 +6,27 @@
     <ion-title>Add &amp; Manage Accounts Page</ion-title>
   </ion-navbar>
 </ion-header>
-
+  
 <ion-content padding>
-  <h5>Add Accounts</h5>
-  <!-- <button ion-button (click)='testOpen()'>testOpen</button><br/> -->
-  <div class="acct_type" *ngFor="let type of acctMngService.acctTypes">
-     <acct-type [type]='type'>
-      <ion-spinner name='circles'></ion-spinner>
-    </acct-type>
-  </div>
+  <div *ngIf="data">
 
-  <h5>Select Profiles to Manage</h5>
-  <ion-list no-lines class="acct_list">
-    <div *ngFor="let acct of acctMngService.acctList.account">
-      <acct-profile 
-        [acct]='acct' 
-        [deleteCallback]='acctMngService.deleteProfile' 
-        [refreshCallback]='acctMngService.refreshProfile' 
-        >
-        <ion-spinner name='circles'></ion-spinner>
-      </acct-profile>
-    </div>
-  </ion-list>
+    <h5>Add Accounts</h5>
+    <div class="acct_type" *ngFor="let type of data.acctTypes">
+      <acct-type [type]='type'></acct-type>
+    </div> 
+
+     <h5>Select Profiles to Manage</h5>
+    <ion-list no-lines class="acct_list">
+      <div *ngFor="let acct of data.acctList.account">
+        <acct-profile 
+          [acct]='acct' 
+          [deleteCallback]='acctMngService.deleteProfile' 
+          [refreshCallback]='acctMngService.refreshProfile'>
+        </acct-profile>
+      </div>
+    </ion-list> 
+
+  </div>
 </ion-content>
 
 <ion-footer>
